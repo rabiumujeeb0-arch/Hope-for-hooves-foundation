@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hope for Hooves Foundation | Every Horse Deserves a Second Chance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1F3D2B;--green2:#2F5A40;--ivory:#FBF8F1;--beige:#EDE3D0;--earth:#7A5C3E;--ink:#222A22;--crit:#8E3B2E;--urg:#8F6212;--rec:#3F7050;--line:#D9CDB4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--ivory);line-height:1.6}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;color:var(--green);line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.4rem,5vw,3.9rem)}h2{font-size:clamp(1.9rem,3.4vw,2.7rem)}h3{font-size:1.4rem}
+p{margin:0 0 1em}
+a{color:var(--green2)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.alt{background:var(--beige)}
+.dark{background:var(--green);color:var(--ivory)}
+.dark h2,.dark h3{color:var(--ivory)}
+.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.74rem;color:var(--earth);font-weight:600;margin-bottom:10px}
+.dark .eyebrow{color:#D9C7A5}
+.lead{font-size:1.08rem;max-width:640px}
+.meta{font-size:.85rem;color:#5B635A}
+.demo-bar{background:#2A2418;color:#E9DFCC;font-size:.8rem;text-align:center;padding:7px 12px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:rgba(251,248,241,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:20}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px;position:relative}
+.logo{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.3rem;font-weight:700;color:var(--green);text-decoration:none}
+.links{display:flex;gap:20px;list-style:none;margin:0;padding:0}
+.links a{color:var(--ink);text-decoration:none;font-size:.9rem}
+.links a:hover{color:var(--green2)}
+.menu{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:7px 12px;font:inherit;color:var(--green);cursor:pointer}
+@media(max-width:920px){.menu{display:block}.links{display:none;position:absolute;top:66px;left:0;right:0;background:var(--ivory);flex-direction:column;padding:14px 20px;border-bottom:1px solid var(--line)}.links.open{display:flex}}
+.btn{display:inline-block;background:var(--green);color:var(--ivory);border:0;border-radius:999px;padding:13px 26px;font:600 .95rem Inter,sans-serif;text-decoration:none;cursor:pointer;transition:background .2s,transform .2s}
+.btn:hover{background:var(--green2);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--green);border:1.5px solid var(--green)}
+.btn.ghost:hover{background:var(--green);color:var(--ivory)}
+.btn.light{background:var(--ivory);color:var(--green)}
+.btn.sm{padding:9px 16px;font-size:.84rem}
+.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.chip:focus-visible,.amt:focus-visible,.menu:focus-visible{outline:3px solid var(--earth);outline-offset:2px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.ph{display:flex;align-items:flex-end;justify-content:center;min-height:220px;background:linear-gradient(160deg,#4A6B52,#1F3D2B 62%,#2A2418);color:#E9DFCC;font-size:.74rem;letter-spacing:.08em;padding:14px;text-transform:uppercase;text-align:center;border-radius:22px}
+.ph.tall{border-radius:0;min-height:280px}
+.hero{padding:64px 0 72px;background:linear-gradient(180deg,var(--ivory),#F3EDE0)}
+.hg{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.hero .ph{min-height:460px}
+@media(max-width:860px){.hg{grid-template-columns:1fr}.hero .ph{min-height:300px}}
+.tag{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.45rem;color:var(--earth)}
+.grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+.card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 24px rgba(31,61,43,.08);display:flex;flex-direction:column}
+.card .ph{border-radius:0;min-height:190px}
+.cb{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.cb p{margin:0}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.badge{align-self:flex-start;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px;color:#fff}
+.crit{background:var(--crit)}.urg{background:var(--urg)}.rec{background:var(--rec)}
+.prog{height:10px;background:var(--beige);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--green2);border-radius:99px;animation:grow 1.2s ease both}
+@keyframes grow{from{width:0}}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
+.chip{border:1.5px solid var(--green);background:transparent;color:var(--green);border-radius:999px;padding:9px 18px;cursor:pointer;font:600 .88rem Inter,sans-serif}
+.chip[aria-pressed=true]{background:var(--green);color:#fff}
+.erow{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(251,248,241,.2)}
+.erow p{margin:0;color:#E4DCC9;font-size:.92rem}
+@media(max-width:700px){.erow{grid-template-columns:1fr}}
+.sp{display:grid;gap:28px;grid-template-columns:1.1fr 1fr}
+@media(max-width:860px){.sp{grid-template-columns:1fr}}
+.panel{background:#fff;border-radius:22px;padding:28px;box-shadow:0 6px 24px rgba(31,61,43,.08)}
+label{display:block;font-weight:600;font-size:.9rem;margin:16px 0 6px;color:var(--green)}
+input,select,textarea{width:100%;font:inherit;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+[aria-invalid=true]{border-color:var(--crit)!important}
+.err{display:block;color:var(--crit);font-size:.84rem;min-height:1.3em;margin-top:4px}
+.amts{display:flex;flex-wrap:wrap;gap:10px}
+.amt{border:1.5px solid var(--green);background:transparent;color:var(--green);border-radius:12px;padding:10px 16px;cursor:pointer;font:600 .95rem Inter,sans-serif}
+.amt[aria-pressed=true]{background:var(--green);color:#fff}
+.sumline{background:var(--beige);border-radius:14px;padding:14px 16px;margin:18px 0;font-weight:500}
+.ok{color:var(--rec);font-size:.92rem;min-height:1.3em}
+.care{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:500px){.care{grid-template-columns:1fr}}
+.care div{border-left:3px solid var(--earth);padding:6px 0 6px 12px}
+.care b{color:var(--green);display:block}
+.care span{font-size:.9rem}
+.three{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}
+.box{background:#fff;border-radius:22px;padding:26px;box-shadow:0 6px 24px rgba(31,61,43,.07)}
+.box p{margin:0}
+.alloc{width:100%;border-collapse:collapse;margin-top:16px;font-size:.92rem;background:#fff;border-radius:16px;overflow:hidden}
+.alloc td,.alloc th{padding:12px 16px;border-bottom:1px solid var(--line);text-align:left}
+.alloc th{background:var(--beige);color:var(--green)}
+.overlay{position:fixed;inset:0;background:rgba(20,30,22,.62);display:none;z-index:50;overflow:auto;padding:40px 16px}
+.overlay.on{display:block}
+.sheet{background:var(--ivory);max-width:820px;margin:0 auto;border-radius:24px;overflow:hidden}
+.pad{padding:28px}
+.facts{display:grid;grid-template-columns:200px 1fr;gap:10px 18px;margin:20px 0}
+.facts dt{font-weight:600;color:var(--green)}
+.facts dd{margin:0}
+@media(max-width:600px){.facts{grid-template-columns:1fr}}
+.close{float:right;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--green);line-height:1}
+footer{background:#18301F;color:#D9D0BC;padding:56px 0 28px;font-size:.92rem}
+footer a{color:#E9DFCC}
+footer h3{color:#F3EBDB;font-size:1.15rem}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+@media(max-width:760px){.fg{grid-template-columns:1fr}}
+.fb{border-top:1px solid rgba(233,223,204,.2);margin-top:36px;padding-top:18px;font-size:.82rem}
+.fl{list-style:none;padding:0;margin:0}
+.fl li{margin-bottom:8px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="demo-bar">Demonstration website. Horse profiles, funding figures and photo slots are sample content.</div>
+
+<header>
+  <nav class="wrap nav" aria-label="Main">
+    <a class="logo" href="#top">Hope for Hooves Foundation</a>
+    <button class="menu" aria-label="Open menu" aria-expanded="false" aria-controls="links">Menu</button>
+    <ul class="links" id="links">
+      <li><a href="#horses">Horses</a></li>
+      <li><a href="#emergency">Emergency</a></li>
+      <li><a href="#sponsor">Sponsor</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#transparency">Transparency</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<section id="top" class="hero">
+  <div class="wrap hg">
+    <div>
+      <p class="eyebrow">Horse rescue and rehabilitation</p>
+      <h1>Hope for Hooves Foundation</h1>
+      <p class="tag">Every Horse Deserves a Second Chance.</p>
+      <p class="lead">We rescue injured and neglected horses, provide veterinary care and rehabilitation, and give each animal a steady path back to health. Your sponsorship pays for the treatment that makes recovery possible.</p>
+      <div class="cta">
+        <a class="btn" href="#sponsor">Sponsor a Horse</a>
+      </div>
+    </div>
+    <img src="/_blob/b0340db23aecd7b4180893d7fe8552de" alt="Three horses standing at a wooden fence on a grassy hillside at sunset, with a shelter in the background." style="display:block;width:100%;height:auto;border-radius:22px;box-shadow:0 10px 30px rgba(31,61,43,.18)">
+  </div>
+</section>
+
+<section id="horses" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Horse rescue directory</p>
+    <h2>Meet the horses in our care</h2>
+    <p class="lead">Each profile shows the horse's injury, current condition, treatment needs and funding progress. Figures are demonstration data.</p>
+    <div class="filters" role="group" aria-label="Filter horses by category">
+      <button class="chip" data-f="all" aria-pressed="true">All horses</button>
+      <button class="chip" data-f="0" aria-pressed="false">Critical</button>
+      <button class="chip" data-f="1" aria-pressed="false">Urgent</button>
+      <button class="chip" data-f="2" aria-pressed="false">Recovery</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="emergency" class="dark">
+  <div class="wrap">
+    <p class="eyebrow">Emergency rescue</p>
+    <h2>Requiring immediate veterinary attention</h2>
+    <p class="lead">These horses need urgent treatment now. Every sponsorship moves their care forward the same day it is received.</p>
+    <div id="em"></div>
+  </div>
+</section>
+
+<section id="sponsor">
+  <div class="wrap">
+    <p class="eyebrow">Sponsorship</p>
+    <h2>Sponsor a horse's care</h2>
+    <p class="lead">Choose a horse, the type of care you want to support, and an amount. Checkout is a placeholder in this demonstration.</p>
+    <div class="sp" style="margin-top:32px">
+      <div class="panel">
+        <label for="sp-horse">Horse</label>
+        <select id="sp-horse"></select>
+        <label for="sp-type">Type of care</label>
+        <select id="sp-type"></select>
+        <label>Amount (USD)</label>
+        <div class="amts" role="group" aria-label="Preset amounts">
+          <button class="amt" data-v="25" aria-pressed="false">$25</button>
+          <button class="amt" data-v="50" aria-pressed="true">$50</button>
+          <button class="amt" data-v="100" aria-pressed="false">$100</button>
+          <button class="amt" data-v="250" aria-pressed="false">$250</button>
+          <button class="amt" data-v="500" aria-pressed="false">$500</button>
+        </div>
+        <label for="sp-amt">Or enter a custom amount</label>
+        <input id="sp-amt" type="number" min="5" max="10000" step="1" value="50" inputmode="numeric">
+        <span class="err" id="sp-err"></span>
+        <div class="sumline" id="sp-sum" aria-live="polite"></div>
+        <button class="btn" id="sp-go" style="width:100%">Continue to checkout</button>
+        <p class="ok" id="sp-ok" aria-live="polite"></p>
+        <p class="meta">No payment is processed in this demonstration.</p>
+      </div>
+      <div class="panel">
+        <h3>What your sponsorship covers</h3>
+        <div class="care">
+          <div><b>Emergency veterinary care</b><span>Examination, stabilisation and urgent visits.</span></div>
+          <div><b>Wound treatment</b><span>Cleaning, dressings and daily care changes.</span></div>
+          <div><b>Surgical assistance</b><span>Operating theatre time and anaesthesia.</span></div>
+          <div><b>Medication</b><span>Antibiotics, pain relief and supportive drugs.</span></div>
+          <div><b>Rehabilitation</b><span>Hydrotherapy, controlled exercise and farrier work.</span></div>
+          <div><b>Feeding and recovery</b><span>Specialist feed, forage and weight restoration.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">About us</p>
+    <h2>Our mission and values</h2>
+    <p class="lead">Hope for Hooves Foundation rescues injured, neglected and abandoned horses and gives each one the veterinary care, rehabilitation and time it needs to recover. We believe every horse deserves a second chance, however serious its condition when it arrives.</p>
+    <div class="three" style="margin-top:32px">
+      <div class="box"><h3>Care first</h3><p>Every decision starts with the horse's welfare and the advice of our veterinary team.</p></div>
+      <div class="box"><h3>Honest accounts</h3><p>We publish how donations are used and how each horse is progressing.</p></div>
+      <div class="box"><h3>Patient recovery</h3><p>Rehabilitation takes months. We commit to every horse until it is ready for its next home.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="transparency" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Transparency</p>
+    <h2>Veterinary reports, treatment and accountability</h2>
+    <p class="lead">This section shows the kinds of records we publish. Figures below are illustrative demonstration data, not actual accounts.</p>
+    <div class="three" style="margin-top:32px">
+      <div class="box"><h3>Veterinary reports</h3><p>Dated clinical summaries for each case, with the treatment plan and veterinary review notes.</p></div>
+      <div class="box"><h3>Treatment updates</h3><p>Regular progress notes showing medication, wound care and changes in condition.</p></div>
+      <div class="box"><h3>Donation accountability</h3><p>A breakdown of how sponsorship funds are spent across each category of care.</p></div>
+      <div class="box"><h3>Rehabilitation progress</h3><p>Milestones from first assessment through to rehoming or release.</p></div>
+    </div>
+    <h3 style="margin-top:44px">Illustrative allocation of funds</h3>
+    <table class="alloc">
+      <thead><tr><th scope="col">Category</th><th scope="col">Share of spending (demonstration)</th></tr></thead>
+      <tbody>
+        <tr><td>Veterinary care and surgery</td><td>58%</td></tr>
+        <tr><td>Medication and wound supplies</td><td>14%</td></tr>
+        <tr><td>Rehabilitation</td><td>13%</td></tr>
+        <tr><td>Feeding and recovery</td><td>10%</td></tr>
+        <tr><td>Administration</td><td>5%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section id="contact" class="alt">
+  <div class="wrap sp">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Get in touch</h2>
+      <p class="lead">For sponsorship enquiries, veterinary partners or volunteering, write to us using the form.</p>
+      <ul class="fl" style="margin-top:20px">
+        <li><b>Address:</b> [Street address to be confirmed]</li>
+        <li><b>Phone:</b> [Phone number to be confirmed]</li>
+        <li><b>Email:</b> [Email address to be confirmed]</li>
+        <li><b>Hours:</b> [Visiting hours to be confirmed]</li>
+      </ul>
+    </div>
+    <form class="panel" id="cf" novalidate>
+      <label for="cf-name">Full name</label>
+      <input id="cf-name" autocomplete="name">
+      <span class="err"></span>
+      <label for="cf-email">Email address</label>
+      <input id="cf-email" type="email" autocomplete="email">
+      <span class="err"></span>
+      <label for="cf-msg">Message</label>
+      <textarea id="cf-msg"></textarea>
+      <span class="err"></span>
+      <button class="btn" type="submit" style="margin-top:16px">Send message</button>
+      <p class="ok" id="cf-ok" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap">
+    <h2>Privacy policy</h2>
+    <p class="meta">Demonstration text only.</p>
+    <p>The foundation will explain here what personal information it collects through this website, how it is used and how to request access or deletion. Final wording must be approved by the foundation and its legal adviser.</p>
+  </div>
+</section>
+
+<section id="terms" class="alt">
+  <div class="wrap">
+    <h2>Terms of use</h2>
+    <p class="meta">Demonstration text only.</p>
+    <p>Terms covering use of this website and sponsorship contributions will appear here. Final wording must be approved by the foundation and its legal adviser.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <h3>Hope for Hooves Foundation</h3>
+        <p>Every Horse Deserves a Second Chance.</p>
+        <p class="meta" style="color:#BFB6A0">Registration details: [Charity number to be confirmed]</p>
+      </div>
+      <div>
+        <h3>Navigate</h3>
+        <ul class="fl">
+          <li><a href="#horses">Horse directory</a></li>
+          <li><a href="#emergency">Emergency rescue</a></li>
+          <li><a href="#sponsor">Sponsor a horse</a></li>
+          <li><a href="#transparency">Transparency</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Follow us</h3>
+        <ul class="fl">
+          <li>Facebook: [handle to be confirmed]</li>
+          <li>Instagram: [handle to be confirmed]</li>
+          <li>YouTube: [channel to be confirmed]</li>
+        </ul>
+        <ul class="fl" style="margin-top:14px">
+          <li><a href="#privacy">Privacy policy</a></li>
+          <li><a href="#terms">Terms of use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fb">© Hope for Hooves Foundation. Demonstration website.</div>
+  </div>
+</footer>
+
+<div class="overlay" id="hv" role="dialog" aria-modal="true" aria-label="Horse profile"></div>
+
+<script>
+const CATS=["Critical medical case","Urgent medical case","Recovery and rehabilitation"];
+const CLS=["crit","urg","rec"];
+const TYPES=["Emergency veterinary care","Wound treatment","Surgical assistance","Medication","Rehabilitation","Feeding and recovery"];
+const H=[
+{id:"juniper",n:"Juniper",a:9,c:0,s:"Found tethered in a flooded paddock with a deep leg laceration. She receives wound care twice daily and is slowly learning to trust people again.",i:"Deep laceration over the left foreleg with contamination.",d:"Infection under control; swelling reducing.",t:"Surgical debridement, antibiotics, daily bandage changes, hydrotherapy.",g:14000,r:9800},
+{id:"ember",n:"Ember",a:14,c:0,s:"Brought in with severe colic. Ember is recovering after emergency surgery and is on a staged feeding and movement plan.",i:"Post-operative recovery from colic surgery.",d:"Stable; monitored for complications.",t:"Post-operative monitoring, pain relief, specialist feed, gradual exercise.",g:18000,r:6200},
+{id:"bramble",n:"Bramble",a:6,c:0,s:"A young gelding injured in a fall. Stabilising the fracture is the priority before any rehabilitation can begin.",i:"Fractured cannon bone.",d:"Limb stabilised; pain managed; strict box rest.",t:"Imaging, stabilisation, confinement, long-term rehabilitation plan.",g:12000,r:4400},
+{id:"halcyon",n:"Halcyon",a:17,c:0,s:"Arrived severely lame and underweight. Specialist farriery and pain control are slowing the damage to her hooves.",i:"Severe laminitis affecting both forefeet.",d:"Pain managed; hoof support in place; close monitoring.",t:"Therapeutic farriery, pain relief, diet management, regular veterinary review.",g:9000,r:2100},
+{id:"copper",n:"Copper",a:11,c:1,s:"Rescued from a farm where he was kept in poor conditions. A deep wound from wire needs regular debridement.",i:"Deep puncture wound on the hindquarter from wire.",d:"Wound granulating; no systemic signs.",t:"Debridement, dressings, antibiotics, pain relief.",g:4800,r:3100},
+{id:"saffron",n:"Saffron",a:4,c:1,s:"A small mare with severe weight loss and a heavy parasite burden. Her condition is improving with careful feeding.",i:"Malnutrition and dehydration.",d:"Stabilising; eating with supervision.",t:"Fluid therapy, parasite treatment, feed program, dental check.",g:3600,r:2700},
+{id:"otter",n:"Otter",a:8,c:1,s:"A gentle gelding who lost use of one eye after an injury. Specialist eye care is needed to protect the remaining eye.",i:"Eye injury with corneal damage.",d:"Treatment under way; sight in the other eye intact.",t:"Ophthalmic medication, protective care, regular eye examinations.",g:2800,r:1500},
+{id:"lark",n:"Lark",a:12,c:1,s:"A rescued mare with a painful hoof abscess. Drainage and dressing changes are bringing her relief.",i:"Hoof abscess with secondary infection.",d:"Improving; still sensitive to weight-bearing.",t:"Abscess drainage, hoof dressings, antibiotics, shoeing support.",g:1900,r:1100},
+{id:"maple",n:"Maple",a:15,c:2,s:"After surgery and a long wound recovery, Maple is now in a structured walking programme building strength.",i:"Previously treated wound, fully healed.",d:"Sound and improving; building fitness.",t:"Controlled walking, supplements, dental care, regular farrier visits.",g:5000,r:4700},
+{id:"solstice",n:"Solstice",a:10,c:2,s:"A tendon injury has responded well to treatment. Solstice is now in a carefully controlled exercise programme.",i:"Healing tendon injury.",d:"Sound; increasing exercise gradually.",t:"Controlled exercise, ultrasound review, rehabilitation schedule.",g:3200,r:2900},
+{id:"pilgrim",n:"Pilgrim",a:19,c:2,s:"A senior gelding who has gained weight after a difficult winter. Dental work and a steady diet are restoring his condition.",i:"Dental disease and poor body condition.",d:"Weight improving; comfortable.",t:"Dental treatment, specialist senior feed, body condition monitoring.",g:2400,r:2200},
+{id:"willow",n:"Willow",a:7,c:2,s:"Willow has regained her weight and is now settling into a small herd. Her next step is supervised turnout.",i:"Previous malnutrition, now resolved.",d:"Healthy weight; socialising well.",t:"Maintenance feeding, vaccinations, herd integration support.",g:1800,r:1800}
+];
+const $=id=>document.getElementById(id);
+function bar(h){const p=Math.min(100,Math.round(h.r/h.g*100));return `<div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${p}" aria-label="Funding progress for ${h.n}"><i style="width:${p}%"></i></div><p class="meta">${p}% of $${h.g.toLocaleString()} target. $${h.r.toLocaleString()} raised.</p>`}
+function card(h){return `<article class="card"><div class="ph" role="img" aria-label="Photograph of ${h.n} to be supplied"><span>Photo to be supplied</span></div><div class="cb"><span class="badge ${CLS[h.c]}">${CATS[h.c]}</span><h3>${h.n}</h3><p class="meta">Age ${h.a}. Demonstration profile.</p><p>${h.s}</p>${bar(h)}<div class="row"><a class="btn ghost sm" href="#horse-${h.id}">View profile</a><button class="btn sm" data-sponsor="${h.id}">Sponsor This Horse</button></div></div></article>`}
+function fil(f){$("grid").innerHTML=H.filter(h=>f==="all"||h.c==f).map(card).join("");document.querySelectorAll("[data-f]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.f===f)))}
+function openHorse(id){const h=H.find(x=>x.id===id);if(!h)return;$("hv").innerHTML=`<div class="sheet"><div class="ph tall" role="img" aria-label="Photograph of ${h.n} to be supplied"><span>Photo to be supplied</span></div><div class="pad"><a class="close" href="#horses" aria-label="Close profile">&times;</a><span class="badge ${CLS[h.c]}">${CATS[h.c]}</span><h2 style="margin-top:12px">${h.n}</h2><p class="meta">Age ${h.a}. Demonstration profile.</p><p>${h.s}</p><dl class="facts"><dt>Injury</dt><dd>${h.i}</dd><dt>Current condition</dt><dd>${h.d}</dd><dt>Treatment requirements</dt><dd>${h.t}</dd><dt>Sponsorship target</dt><dd>$${h.g.toLocaleString()}</dd></dl>${bar(h)}<div class="cta"><button class="btn" data-sponsor="${h.id}">Sponsor This Horse</button><a class="btn ghost" href="#horses">Back to directory</a></div></div></div>`;$("hv").classList.add("on");$("hv").scrollTop=0}
+function closeHorse(){$("hv").classList.remove("on")}
+function route(){const h=decodeURIComponent(location.hash.slice(1));if(h.startsWith("horse-")){openHorse(h.slice(6))}else{closeHorse();const el=h&&$(h);if(el)el.scrollIntoView()}}
+window.addEventListener("hashchange",route);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&location.hash.startsWith("#horse-"))location.hash="horses"});
+$("hv").addEventListener("click",e=>{if(e.target.id==="hv")location.hash="horses"});
+document.addEventListener("click",e=>{const b=e.target.closest("[data-sponsor]");if(!b)return;$("sp-horse").value=b.dataset.sponsor;location.hash="sponsor";$("sponsor").scrollIntoView();upd()});
+document.querySelectorAll("[data-f]").forEach(b=>b.addEventListener("click",()=>fil(b.dataset.f)));
+$("links").addEventListener("click",e=>{if(e.target.tagName==="A"){$("links").classList.remove("open");document.querySelector(".menu").setAttribute("aria-expanded","false")}});
+document.querySelector(".menu").addEventListener("click",function(){const o=$("links").classList.toggle("open");this.setAttribute("aria-expanded",String(o))});
+
+$("em").innerHTML=H.filter(h=>h.c===0).map(h=>`<div class="erow"><div><h3>${h.n}</h3><p>${h.i}</p></div><a class="btn light sm" href="#horse-${h.id}">View case</a><button class="btn sm" data-sponsor="${h.id}">Sponsor now</button></div>`).join("");
+$("sp-horse").innerHTML=H.map(h=>`<option value="${h.id}">${h.n} (${CATS[h.c]})</option>`).join("");
+$("sp-type").innerHTML=TYPES.map(t=>`<option>${t}</option>`).join("");
+let picked=50;
+function setAmt(v){picked=v;$("sp-amt").value=v;document.querySelectorAll(".amt").forEach(c=>c.setAttribute("aria-pressed",String(+c.dataset.v===v)));upd()}
+document.querySelectorAll(".amt").forEach(c=>c.addEventListener("click",()=>setAmt(+c.dataset.v)));
+$("sp-amt").addEventListener("input",()=>{picked=parseFloat($("sp-amt").value);document.querySelectorAll(".amt").forEach(c=>c.setAttribute("aria-pressed","false"));upd()});
+function upd(){const h=H.find(x=>x.id===$("sp-horse").value);const v=Number($("sp-amt").value);$("sp-sum").textContent=`${$("sp-type").value} for ${h?h.n:"a horse"}: $${(Number.isFinite(v)?v:0).toLocaleString()}`}
+$("sp-horse").addEventListener("change",upd);$("sp-type").addEventListener("change",upd);
+$("sp-go").addEventListener("click",()=>{const raw=$("sp-amt").value.trim();const v=Number(raw);const h=H.find(x=>x.id===$("sp-horse").value);let m="";
+if(!h)m="Please choose a horse.";
+else if(raw===""||!Number.isFinite(v)||!Number.isInteger(v))m="Enter whole dollars, for example 50.";
+else if(v<5||v>10000)m="Amounts must be between $5 and $10,000.";
+$("sp-amt").setAttribute("aria-invalid",String(!!m));$("sp-err").textContent=m;
+$("sp-ok").textContent=m?"":`Demonstration checkout: payment is not connected, so no money was taken. Your selection was ${$("sp-type").value} for ${h.n} at $${v.toLocaleString()}.`});
+$("sp-amt").addEventListener("input",()=>{$("sp-err").textContent="";$("sp-amt").setAttribute("aria-invalid","false")});
+
+$("cf").addEventListener("submit",e=>{e.preventDefault();let ok=true;
+[["cf-name",v=>v.trim().length>=2,"Please enter your name."],["cf-email",v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()),"Please enter a valid email address."],["cf-msg",v=>v.trim().length>=10,"Please write at least 10 characters."]].forEach(([id,fn,msg])=>{const el=$(id);const bad=!fn(el.value);el.setAttribute("aria-invalid",String(bad));el.nextElementSibling.textContent=bad?msg:"";if(bad)ok=false});
+if(ok){e.target.reset();$("cf-ok").textContent="Thank you. This demonstration form has not sent a message. A live form would reach the foundation team."}else{$("cf-ok").textContent=""}});
+
+fil("all");
+route();
+</script>
+</body>
+</html>
